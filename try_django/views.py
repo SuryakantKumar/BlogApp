@@ -3,13 +3,12 @@ from django.shortcuts import render
 
 
 def home_page(request):
-    title = 'Home Page'
-    return render(request, "home.html", {"title": title})
+    return render(request, "home.html", {"title": 'Home Page'})
 
 
 def about_page(request):
-    return HttpResponse("<h1>About Us</h1>")
+    return render(request, "about.html", {"title": 'About Us'})
 
 
 def contact_page(request):
-    return HttpResponse("<h1>Contact Us</h1>")
+    return render(request, "contact.html", {"title": 'Contact Us'})
