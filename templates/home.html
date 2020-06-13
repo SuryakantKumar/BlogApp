@@ -1,7 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
+
 <center>
     <h1>Welcome to home page.</h1>
 </center>
+
+<!-- Login user contents -->
+<center>
+    {% for things in user_content %}
+    <p>{{ things }}</p>
+    {% endfor %}
+</center>
+
 {% endblock %}

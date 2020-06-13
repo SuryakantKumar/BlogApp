@@ -4,15 +4,21 @@ from django.template.loader import get_template
 
 
 def home_page(request):
-    return render(request, "home.html", {"title": 'Home Page'})
+    context = {"title": 'Home Page'}
+    if request.user.is_authenticated:
+        context = {"title": 'Home Page', "user_content": [
+            'profile', 'login', 'content']}
+    return render(request, "home.html", context)
 
 
 def about_page(request):
-    return render(request, "about.html", {"title": 'About Us'})
+    context = {"title": 'About Us'}
+    return render(request, "about.html", context)
 
 
 def contact_page(request):
-    return render(request, "contact.html", {"title": 'Contact Us'})
+    context = {"title": 'Contact Us'}
+    return render(request, "contact.html", context)
 
 
 def example_page(request):
