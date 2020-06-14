@@ -33,5 +33,5 @@ urlpatterns = [
     re_path(r'^about/$', about_page),
     path('contact/', contact_page),
     path('example/', example_page),
-    path('blog/', blog_post_detail_page)
+    path('blog/<str:slug>/', blog_post_detail_page)
 ]
