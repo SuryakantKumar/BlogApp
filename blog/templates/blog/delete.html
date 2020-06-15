@@ -4,10 +4,14 @@
 {% block content %}
     <div style="background-color: whitesmoke; margin: 10vh 20vw; border: solid 0.1rem #00ffff;">
         <div>
-            <h1>{{ object.title }} - Delete</h1>
+            <h1> Are you sure you want to delete the following :</h1>
         </div>
         <div>
-            <p>{{ object.content }}</p>
+            <p>{{ object.title }}</p>
         </div>
+        <form method="POST">
+            {% csrf_token %}
+            <button class="btn btn-danger">Yes, delete</button>
+        </form>
     </div>
 {% endblock %}
