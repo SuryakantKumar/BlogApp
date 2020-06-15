@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    {% for object in object_list %}
+        <div style="background-color: whitesmoke; margin: 2vh 20vw; border: solid 0.1rem #00ffff;">
+            <div>
+                <h1>{{ object.title }}</h1>
+            </div>
+            <div>
+                <p>{{ object.content }}</p>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
