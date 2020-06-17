@@ -11,3 +11,12 @@ class BlogPost(models.Model):
 
     # blogpost_set --> queryset
     user = models.ForeignKey(User, default=1, null=True, on_delete=models.SET_NULL)
+
+    def get_absolute_url(self):
+        return f"/blog/{self.slug}"
+
+    def get_edit_url(self):
+        return f"/blog/{self.slug}/edit"
+
+    def get_delete_url(self):
+        return f"/blog/{self.slug}/delete"

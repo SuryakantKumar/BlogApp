@@ -3,13 +3,6 @@
 
 {% block content %}
     {% for object in object_list %}
-        <div style="background-color: whitesmoke; margin: 2vh 20vw; border: solid 0.1rem #00ffff;">
-            <div>
-                <h1>{{ object.title }}</h1>
-            </div>
-            <div>
-                <p>{{ object.content }}</p>
-            </div>
-        </div>
+        {% include 'blog/list-inline.html' with blog_post=object truncate=True detail=False %}
     {% endfor %}
 {% endblock %}

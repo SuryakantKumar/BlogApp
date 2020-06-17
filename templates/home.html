@@ -7,10 +7,8 @@
     </center>
 
     <!-- Login user contents -->
-    <center>
-        {% for things in user_content %}
-            <p>{{ things }}</p>
-        {% endfor %}
-    </center>
+    {% for a in blog_list %}
+        <p>{% include "blog/list-inline.html" with blog_post=a truncate=True detail=False %}</p>
+    {% endfor %}
 
 {% endblock %}

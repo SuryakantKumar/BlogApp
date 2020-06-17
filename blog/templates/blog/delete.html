@@ -9,7 +9,7 @@
         <div>
             <p>{{ object.title }}</p>
         </div>
-        <form method="POST">
+        <form method="post">
             {% csrf_token %}
             <button class="btn btn-danger">Yes, delete</button>
         </form>

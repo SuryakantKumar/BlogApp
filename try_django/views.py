@@ -3,13 +3,16 @@ from django.shortcuts import render
 from django.template.loader import get_template
 
 from .forms import ContactForm
+from blog.models import BlogPost
 
 
 def home_page(request):
-    context = {"title": 'Home Page'}
-    if request.user.is_authenticated:
-        context = {"title": 'Home Page', "user_content": [
-            'profile', 'login', 'content']}
+    qs = BlogPost.objects.all()[:5]
+    context = {"title": 'Home Page',
+               'blog_list': qs}
+    # if request.user.is_authenticated:
+    #     context = {"title": 'Home Page', "user_content": [
+    #         'profile', 'login', 'content']}
     return render(request, "home.html", context)
 
 
