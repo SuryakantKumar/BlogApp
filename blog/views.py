@@ -19,6 +19,9 @@ def blog_post_list_view(request):
     # now = timezone.now()
     # qs = BlogPost.objects.filter(publish_date__lte=now)
     qs = BlogPost.objects.all().published()
+    if request.user.is_authenticated:
+        my_qs = BlogPost.objects.filter(user=request.user)
+        qs = (qs | my_qs).distinct()
 
     template_name = 'blog/list.html'
     context = {"title": "Blog",
