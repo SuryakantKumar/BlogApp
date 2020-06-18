@@ -20,6 +20,9 @@ class BlogPostManager(models.Manager):
 
 
 class BlogPost(models.Model):
+    # blogpost_set --> queryset
+    user = models.ForeignKey(User, default=1, null=True, on_delete=models.SET_NULL)
+    image = models.ImageField(upload_to='image/', blank=True, null=True)
     title = models.CharField(max_length=120)
     slug = models.SlugField(unique=True)
     content = models.TextField(null=True, blank=True)
@@ -28,9 +31,6 @@ class BlogPost(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     objects = BlogPostManager()
-
-    # blogpost_set --> queryset
-    user = models.ForeignKey(User, default=1, null=True, on_delete=models.SET_NULL)
 
     class Meta:
         ordering = ['-publish_date', '-updated', '-timestamp']
